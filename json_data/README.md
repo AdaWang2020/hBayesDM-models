@@ -1,4 +1,4 @@
-### Information currently kept track of by JSON Schema:
+### Information currently kept track of by Model Information Schema:
 Property | Required | Explanation
 -|-|-
 "model" | o | Full name of the model.
