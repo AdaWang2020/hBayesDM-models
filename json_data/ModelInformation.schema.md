@@ -1,11 +1,11 @@
 ### Information currently kept track of by JSON Schema:
 Property | Required | Explanation
 -|-|-
-"model_function" | o | Name of the model function.
-"data_columns" | o | Necessary data columns for the user data.
-"data_list" | o | List of preprocessed user data that gets passed to Stan.
-"parameters" | o | Parameters of this model.
-"gen_init" | o | Initial value & bounds of the parameters **used in the R file**.</br>*\* Note that these bounds are just for setting the initial values; these bounds may differ from the boundary constraints given to the parameters in the Stan file.*
-"regressors" | x | Regressors of this model.
+"model" | o | Full name of the model.
+"data_columns" | o | Names of the necessary data columns for the user data.
+"data_for_stan" | o | Names of the preprocessed data to be passed to Stan.
+"parameters" | o | Names of the parameters of this model.
+"gen_init" | o | Bounds & initial values of the parameters **used in the R/Python codes**.</br> *\* Note that these bounds may differ from the boundary constraints given to the parameters in the Stan code.*
+"regressors" | x | Names of the regressors of this model.
 
 #### Written by Jethro Lee.

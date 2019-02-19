@@ -1,9 +1,9 @@
 {
-  "title": "Model Function Info",
+  "title": "Model Information Schema",
   "type": "object",
-  "required": ["model_function", "data_columns", "data_list", "parameters", "gen_init"],
+  "required": ["model", "data_columns", "data_for_stan", "parameters", "gen_init"],
   "properties": {
-    "model_function": {
+    "model": {
       "type": "string"
     },
     "data_columns": {
@@ -12,7 +12,7 @@
         "type": "string"
       }
     },
-    "data_list": {
+    "data_for_stan": {
       "type": "array",
       "items": {
         "type": "string"
