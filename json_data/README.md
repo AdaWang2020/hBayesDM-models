@@ -5,7 +5,7 @@ Property | Required | Explanation
 "data_columns" | o | Names of the necessary data columns for the user data.
 "data_for_stan" | o | Names of the preprocessed data to be passed to Stan.
 "parameters" | o | Names of the parameters of this model.
-"gen_init" | o | Bounds & initial values of the parameters **used in the R/Python codes**.</br> *\* Note that these bounds may differ from the boundary constraints given to the parameters in the Stan code.*
+"parameters_info" | o | Bounds & initial values of the parameters **used in the R/Python codes**.</br> *\* Note that these bounds may differ from the boundary constraints given to the parameters in the Stan code.*
 "regressors" | x | Names of the regressors of this model.
 
 #### Written by Jethro Lee.

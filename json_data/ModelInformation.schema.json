@@ -1,7 +1,7 @@
 {
   "title": "Model Information Schema",
   "type": "object",
-  "required": ["model", "data_columns", "data_for_stan", "parameters", "gen_init"],
+  "required": ["model", "data_columns", "data_for_stan", "parameters", "parameters_info"],
   "properties": {
     "model": {
       "type": "string"
@@ -24,7 +24,7 @@
         "type": "string"
       }
     },
-    "gen_init": {
+    "parameters_info": {
       "type": "array",
       "items": {
         "type": "array",

@@ -3,5 +3,5 @@
   "data_columns": ["subjID", "choice", "gain", "loss"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["A", "alpha", "cons", "lambda"],
-  "gen_init": [[0, 0.5, 1], [0, 0.5, 2], [0, 1, 5], [0, 1, 10]]
+  "parameters_info": [[0, 0.5, 1], [0, 0.5, 2], [0, 1, 5], [0, 1, 10]]
 }

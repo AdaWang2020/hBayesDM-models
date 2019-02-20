@@ -3,5 +3,5 @@
   "data_columns": ["subjID", "choice", "RT"],
   "data_for_stan": ["Nu", "Nl", "RTu", "RTl", "minRT", "RTbound"],
   "parameters": ["alpha", "beta", "delta", "tau"],
-  "gen_init": [["None", 0.5, "None"], ["None", 0.5, "None"], ["None", 0.5, "None"], ["None", 0.15, "None"]]
+  "parameters_info": [["None", 0.5, "None"], ["None", 0.5, "None"], ["None", 0.5, "None"], ["None", 0.15, "None"]]
 }

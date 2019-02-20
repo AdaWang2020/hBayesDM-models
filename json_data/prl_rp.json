@@ -3,6 +3,6 @@
   "data_columns": ["subjID", "choice", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["Apun", "Arew", "beta"],
-  "gen_init": [[0, 0.1, 1], [0, 0.1, 1], [0, 1, 10]],
+  "parameters_info": [[0, 0.1, 1], [0, 0.1, 1], [0, 1, 10]],
   "regressors": ["ev_c", "ev_nc", "pe"]
 }
