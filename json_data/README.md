@@ -1,7 +1,9 @@
-### Information currently kept track of by Model Information Schema:
+## Information kept track of by Model Information Schema:
 Property | Required | Explanation
 -|-|-
-"model" | o | Full name of the model.
+"task_name" | o | Name of the task.
+"model_name" | o | Name of the model.
+"model_type" | o | Modeling type: "" or "single" or "multipleB".
 "data_columns" | o | Names of the necessary data columns for the user data.
 "data_for_stan" | o | Names of the preprocessed data to be passed to Stan.
 "parameters" | o | Names of the parameters of this model.
@@ -10,4 +12,16 @@ Property | Required | Explanation
 "regressors_info" | x | Dimension-sizes of the extracted regressors.
 "postpreds" | o | Name(s) of the posterior predictions. **Must be specified as array of string(s).**
 
-#### Written by Jethro Lee.
+## How to validate JSON file(s)
+**Requirement:** [`pip install -U jsonschema`](https://github.com/Julian/jsonschema)
+
+To validate a single JSON file:
+```sh
+jsonschema -i FILE_NAME_HERE ModelInformation.schema.json
+```
+To validate all JSON files in directory, use following shell script:
+```sh
+./ValidateAll.sh
+```
+
+##### Written by Jethro Lee.
