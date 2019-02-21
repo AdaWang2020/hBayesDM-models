@@ -3,5 +3,6 @@
   "data_columns": ["subjID", "choice", "gain", "loss"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["A", "alpha", "cons", "lambda", "epP", "epN", "K", "w"],
-  "parameters_info": [[0, 0.5, 1], [0, 0.5, 2], [0, 1, 5], [0, 1, 10], ["-inf", 0, "inf"], ["-inf", 0, "inf"], [0, 0.5, 1], [0, 0.5, 1]]
+  "parameters_info": [[0, 0.5, 1], [0, 0.5, 2], [0, 1, 5], [0, 1, 10], ["-inf", 0, "inf"], ["-inf", 0, "inf"], [0, 0.5, 1], [0, 0.5, 1]],
+  "postpreds": ["y_pred"]
 }

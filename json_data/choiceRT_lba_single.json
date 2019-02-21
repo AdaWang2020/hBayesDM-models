@@ -3,5 +3,6 @@
   "data_columns": ["subjID", "choice", "RT", "condition"],
   "data_for_stan": ["N_choice", "N_cond", "tr_cond", "max_tr", "RT"],
   "parameters": ["d", "A", "v", "tau"],
-  "parameters_info": [["None", 0.25, "None"], ["None", 0.75, "None"], ["None", 2, "None"], ["None", 0.2, "None"]]
+  "parameters_info": [["None", 0.25, "None"], ["None", 0.75, "None"], ["None", 2, "None"], ["None", 0.2, "None"]],
+  "postpreds": ["y_pred"]
 }

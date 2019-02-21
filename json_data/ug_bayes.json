@@ -3,5 +3,6 @@
   "data_columns": ["subjID", "offer", "accept"],
   "data_for_stan": ["N", "T", "Tsubj", "offer", "accept"],
   "parameters": ["alpha", "beta", "tau"],
-  "parameters_info": [[0, 1, 20], [0, 0.5, 10], [0, 1, 10]]
+  "parameters_info": [[0, 1, 20], [0, 0.5, 10], [0, 1, 10]],
+  "postpreds": ["y_pred"]
 }
