@@ -1,5 +1,7 @@
 {
-  "model": "pst_gainloss_Q",
+  "task_name": "pst",
+  "model_name": "gainloss_Q",
+  "model_type": "",
   "data_columns": ["subjID", "type", "choice", "reward"],
   "data_for_stan": ["N", "T", "Tsubj", "option1", "option2", "choice", "reward"],
   "parameters": ["alpha_pos", "alpha_neg", "beta"],

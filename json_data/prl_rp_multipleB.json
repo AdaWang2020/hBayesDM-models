@@ -1,5 +1,7 @@
 {
-  "model": "prl_rp_multipleB",
+  "task_name": "prl",
+  "model_name": "rp",
+  "model_type": "multipleB",
   "data_columns": ["subjID", "block", "choice", "outcome"],
   "data_for_stan": ["N", "B", "Bsubj", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["Apun", "Arew", "beta"],

@@ -1,5 +1,7 @@
 {
-  "model": "prl_fictitious_woa",
+  "task_name": "prl",
+  "model_name": "fictitious_woa",
+  "model_type": "",
   "data_columns": ["subjID", "choice", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["eta", "beta"],

@@ -1,5 +1,7 @@
 {
-  "model": "igt_orl",
+  "task_name": "igt",
+  "model_name": "orl",
+  "model_type": "",
   "data_columns": ["subjID", "choice", "gain", "loss"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome", "sign_out"],
   "parameters": ["Arew", "Apun", "K", "betaF", "betaP"],

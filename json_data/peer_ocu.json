@@ -1,5 +1,7 @@
 {
-  "model": "peer_ocu",
+  "task_name": "peer",
+  "model_name": "ocu",
+  "model_type": "",
   "data_columns": ["subjID", "condition", "p_gamble", "safe_Hpayoff", "safe_Lpayoff", "risky_Hpayoff", "risky_Lpayoff", "choice"],
   "data_for_stan": ["N", "T", "Tsubj", "condition", "p_gamble", "safe_Hpayoff", "safe_Lpayoff", "risky_Hpayoff", "risky_Lpayoff", "choice"],
   "parameters": ["rho", "tau", "ocu"],

@@ -1,5 +1,7 @@
 {
-  "model": "prl_rp",
+  "task_name": "prl",
+  "model_name": "rp",
+  "model_type": "",
   "data_columns": ["subjID", "choice", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["Apun", "Arew", "beta"],

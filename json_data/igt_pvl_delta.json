@@ -1,5 +1,7 @@
 {
-  "model": "igt_pvl_delta",
+  "task_name": "igt",
+  "model_name": "pvl_delta",
+  "model_type": "",
   "data_columns": ["subjID", "choice", "gain", "loss"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["A", "alpha", "cons", "lambda"],

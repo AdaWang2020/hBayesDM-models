@@ -1,5 +1,7 @@
 {
-  "model": "dd_hyperbolic_single",
+  "task_name": "dd",
+  "model_name": "hyperbolic",
+  "model_type": "single",
   "data_columns": ["subjID", "delay_later", "amount_later", "delay_sooner", "amount_sooner", "choice"],
   "data_for_stan": ["Tsubj", "delay_later", "amount_later", "delay_sooner", "amount_sooner", "choice"],
   "parameters": ["k", "beta"],

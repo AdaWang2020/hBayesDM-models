@@ -1,5 +1,7 @@
 {
-  "model": "gng_m2",
+  "task_name": "gng",
+  "model_name": "m2",
+  "model_type": "",
   "data_columns": ["subjID", "cue", "keyPressed", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "cue", "pressed", "outcome"],
   "parameters": ["xi", "ep", "b", "rho"],

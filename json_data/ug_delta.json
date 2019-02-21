@@ -1,5 +1,7 @@
 {
-  "model": "ug_delta",
+  "task_name": "ug",
+  "model_name": "delta",
+  "model_type": "",
   "data_columns": ["subjID", "offer", "accept"],
   "data_for_stan": ["N", "T", "Tsubj", "offer", "accept"],
   "parameters": ["alpha", "tau", "ep"],

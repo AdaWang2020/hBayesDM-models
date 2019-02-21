@@ -1,5 +1,7 @@
 {
-  "model": "cra_exp",
+  "task_name": "cra",
+  "model_name": "exp",
+  "model_type": "",
   "data_columns": ["subjID", "prob", "ambig", "reward_var", "reward_fix", "choice"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "prob", "ambig", "reward_var", "reward_fix"],
   "parameters": ["alpha", "beta", "gamma"],

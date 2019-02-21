@@ -1,5 +1,7 @@
 {
-  "model": "choiceRT_lba_single",
+  "task_name": "choiceRT",
+  "model_name": "lba",
+  "model_type": "single",
   "data_columns": ["subjID", "choice", "RT", "condition"],
   "data_for_stan": ["N_choice", "N_cond", "tr_cond", "max_tr", "RT"],
   "parameters": ["d", "A", "v", "tau"],

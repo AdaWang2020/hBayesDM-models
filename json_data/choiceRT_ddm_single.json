@@ -1,5 +1,7 @@
 {
-  "model": "choiceRT_ddm_single",
+  "task_name": "choiceRT",
+  "model_name": "ddm",
+  "model_type": "single",
   "data_columns": ["subjID", "choice", "RT"],
   "data_for_stan": ["Nu", "Nl", "RTu", "RTl", "minRT", "RTbound"],
   "parameters": ["alpha", "beta", "delta", "tau"],

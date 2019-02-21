@@ -1,5 +1,7 @@
 {
-  "model": "wcs_sql",
+  "task_name": "wcs",
+  "model_name": "sql",
+  "model_type": "",
   "data_columns": ["subjID", "choice", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome", "choice_match_att", "deck_match_rule"],
   "parameters": ["r", "p", "d"],

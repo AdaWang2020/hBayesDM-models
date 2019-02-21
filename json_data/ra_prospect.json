@@ -1,5 +1,7 @@
 {
-  "model": "ra_prospect",
+  "task_name": "ra",
+  "model_name": "prospect",
+  "model_type": "",
   "data_columns": ["subjID", "gain", "loss", "cert", "gamble"],
   "data_for_stan": ["N", "T", "Tsubj", "gain", "loss", "cert", "gamble"],
   "parameters": ["rho", "lambda", "tau"],

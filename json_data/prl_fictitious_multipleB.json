@@ -1,5 +1,7 @@
 {
-  "model": "prl_fictitious_multipleB",
+  "task_name": "prl",
+  "model_name": "fictitious",
+  "model_type": "multipleB",
   "data_columns": ["subjID", "block", "choice", "outcome"],
   "data_for_stan": ["N", "B", "Bsubj", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["eta", "alpha", "beta"],

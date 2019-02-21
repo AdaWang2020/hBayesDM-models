@@ -1,5 +1,7 @@
 {
-  "model": "ts_par6",
+  "task_name": "ts",
+  "model_name": "par6",
+  "model_type": "",
   "data_columns": ["subjID", "level1_choice", "level2_choice", "reward"],
   "data_for_stan": ["N", "T", "Tsubj", "level1_choice", "level2_choice", "reward", "trans_prob"],
   "parameters": ["a1", "beta1", "a2", "beta2", "pi", "w"],

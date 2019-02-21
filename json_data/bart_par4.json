@@ -1,5 +1,7 @@
 {
-  "model": "bart_par4",
+  "task_name": "bart",
+  "model_name": "par4",
+  "model_type": "",
   "data_columns": ["subjID", "pumps", "explosion"],
   "data_for_stan": ["N", "T", "Tsubj", "P", "pumps", "explosion"],
   "parameters": ["phi", "eta", "gam", "tau"],

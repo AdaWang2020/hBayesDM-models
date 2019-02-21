@@ -1,5 +1,7 @@
 {
-  "model": "dd_cs_single",
+  "task_name": "dd",
+  "model_name": "cs",
+  "model_type": "single",
   "data_columns": ["subjID", "delay_later", "amount_later", "delay_sooner", "amount_sooner", "choice"],
   "data_for_stan": ["Tsubj", "delay_later", "amount_later", "delay_sooner", "amount_sooner", "choice"],
   "parameters": ["r", "s", "beta"],

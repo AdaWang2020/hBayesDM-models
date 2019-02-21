@@ -1,5 +1,7 @@
 {
-  "model": "bandit2arm_delta",
+  "task_name": "bandit2arm",
+  "model_name": "delta",
+  "model_type": "",
   "data_columns": ["subjID", "choice", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["A", "tau"],
