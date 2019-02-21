@@ -1,9 +1,15 @@
 {
   "title": "Model Information Schema",
   "type": "object",
-  "required": ["model", "data_columns", "data_for_stan", "parameters", "parameters_info", "postpreds"],
+  "required": ["task_name", "model_name", "model_type", "data_columns", "data_for_stan", "parameters", "parameters_info", "postpreds"],
   "properties": {
-    "model": {
+    "task_name": {
+      "type": "string"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "model_type": {
       "type": "string"
     },
     "data_columns": {
