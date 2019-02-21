@@ -4,5 +4,5 @@
   "data_for_stan": ["N", "T", "Tsubj", "level1_choice", "level2_choice", "reward", "trans_prob"],
   "parameters": ["a1", "beta1", "a2", "beta2", "pi", "w"],
   "parameters_info": [[0, 0.5, 1], [0, 1, "inf"], [0, 0.5, 1], [0, 1, "inf"], [0, 1, 5], [0, 0.5, 1]],
-  "postpreds": ["y_pred"]
+  "postpreds": ["y_pred_step1", "y_pred_step2"]
 }
