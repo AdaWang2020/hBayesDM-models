@@ -4,5 +4,6 @@
   "data_for_stan": ["N", "T", "Tsubj", "choice", "prob", "ambig", "reward_var", "reward_fix"],
   "parameters": ["alpha", "beta", "gamma"],
   "parameters_info": [[0, 1, 2], ["-inf", 0, "inf"], [0, 1, "inf"]],
-  "regressors": ["sv", "sv_fix", "sv_var", "p_var"]
+  "regressors": ["sv", "sv_fix", "sv_var", "p_var"],
+  "regressors_info": [2, 2, 2, 2]
 }

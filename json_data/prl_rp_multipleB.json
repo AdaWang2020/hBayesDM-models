@@ -4,5 +4,6 @@
   "data_for_stan": ["N", "B", "Bsubj", "T", "Tsubj", "choice", "outcome"],
   "parameters": ["Apun", "Arew", "beta"],
   "parameters_info": [[0, 0.1, 1], [0, 0.1, 1], [0, 1, 10]],
-  "regressors": ["ev_c", "ev_nc", "pe"]
+  "regressors": ["ev_c", "ev_nc", "pe"],
+  "regressors_info": [3, 3, 3]
 }
