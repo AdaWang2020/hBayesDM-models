@@ -37,6 +37,12 @@
       "items": {
         "type": "string"
       }
+    },
+    "regressors_info": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
     }
   }
 }
