@@ -1,7 +1,7 @@
 {
   "title": "Model Information Schema",
   "type": "object",
-  "required": ["model", "data_columns", "data_for_stan", "parameters", "parameters_info"],
+  "required": ["model", "data_columns", "data_for_stan", "parameters", "parameters_info", "postpreds"],
   "properties": {
     "model": {
       "type": "string"
@@ -42,6 +42,12 @@
       "type": "array",
       "items": {
         "type": "integer"
+      }
+    },
+    "postpreds": {
+      "type": "array",
+      "items": {
+        "type": "string"
       }
     }
   }
