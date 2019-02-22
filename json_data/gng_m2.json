@@ -5,7 +5,7 @@
   "data_columns": ["subjID", "cue", "keyPressed", "outcome"],
   "data_for_stan": ["N", "T", "Tsubj", "cue", "pressed", "outcome"],
   "parameters": ["xi", "ep", "b", "rho"],
-  "parameters_info": [[0, 0.1, 1], [0, 0.2, 1], ["-inf", 0, "inf"], [0, "exp(2)", "inf"]],
+  "parameters_info": [[0, 0.1, 1], [0, 0.2, 1], ["-Inf", 0, "Inf"], [0, "exp(2)", "Inf"]],
   "regressors": ["Qgo", "Qnogo", "Wgo", "Wnogo"],
   "regressors_info": [2, 2, 2, 2],
   "postpreds": ["y_pred"]

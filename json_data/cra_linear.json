@@ -5,7 +5,7 @@
   "data_columns": ["subjID", "prob", "ambig", "reward_var", "reward_fix", "choice"],
   "data_for_stan": ["N", "T", "Tsubj", "choice", "prob", "ambig", "reward_var", "reward_fix"],
   "parameters": ["alpha", "beta", "gamma"],
-  "parameters_info": [[0, 1, 2], ["-inf", 0, "inf"], [0, 1, "inf"]],
+  "parameters_info": [[0, 1, 2], ["-Inf", 0, "Inf"], [0, 1, "Inf"]],
   "regressors": ["sv", "sv_fix", "sv_var", "p_var"],
   "regressors_info": [2, 2, 2, 2],
   "postpreds": ["y_pred"]
