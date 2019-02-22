@@ -5,6 +5,6 @@
   "data_columns": ["subjID", "delay_later", "amount_later", "delay_sooner", "amount_sooner", "choice"],
   "data_for_stan": ["Tsubj", "delay_later", "amount_later", "delay_sooner", "amount_sooner", "choice"],
   "parameters": ["k", "beta"],
-  "parameters_info": [["None", 0.1, "None"], ["None", 1, "None"]],
+  "parameters_info": [[null, 0.1, null], [null, 1, null]],
   "postpreds": ["y_pred"]
 }
