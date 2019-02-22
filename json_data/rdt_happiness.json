@@ -3,8 +3,13 @@
   "model_name": "happiness",
   "model_type": "",
   "data_columns": ["subjID", "gain", "loss", "cert", "type", "gamble", "outcome", "happy", "RT_happy"],
-  "data_for_stan": ["N", "T", "Tsubj", "gain", "loss", "cert", "type", "gamble", "outcome", "happy", "RT_happy"],
-  "parameters": ["w0", "w1", "w2", "w3", "gam", "sig"],
-  "parameters_info": [["-Inf", 1, "Inf"], ["-Inf", 1, "Inf"], ["-Inf", 1, "Inf"], ["-Inf", 1, "Inf"], [0, 0.5, 1], [0, 1, "Inf"]],
+  "parameters": {
+    "w0": ["-Inf", 1, "Inf"],
+    "w1": ["-Inf", 1, "Inf"],
+    "w2": ["-Inf", 1, "Inf"],
+    "w3": ["-Inf", 1, "Inf"],
+    "gam": [0, 0.5, 1],
+    "sig": [0, 1, "Inf"]
+  },
   "postpreds": ["y_pred"]
 }

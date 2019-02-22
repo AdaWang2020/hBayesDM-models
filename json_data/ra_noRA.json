@@ -3,8 +3,9 @@
   "model_name": "noRA",
   "model_type": "",
   "data_columns": ["subjID", "gain", "loss", "cert", "gamble"],
-  "data_for_stan": ["N", "T", "Tsubj", "gain", "loss", "cert", "gamble"],
-  "parameters": ["lambda", "tau"],
-  "parameters_info": [[0, 1, 5], [0, 1, 30]],
+  "parameters": {
+    "lambda": [0, 1, 5],
+    "tau": [0, 1, 30]
+  },
   "postpreds": ["y_pred"]
 }

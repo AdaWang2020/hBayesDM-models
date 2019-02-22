@@ -3,8 +3,11 @@
   "model_name": "prob_weight",
   "model_type": "",
   "data_columns": ["subjID", "opt1hprob", "opt2hprob", "opt1hval", "opt1lval", "opt2hval", "opt2lval", "choice"],
-  "data_for_stan": ["N", "T", "Tsubj", "opt1hprob", "opt2hprob", "opt1hval", "opt1lval", "opt2hval", "opt2lval", "choice"],
-  "parameters": ["tau", "rho", "lambda", "beta"],
-  "parameters_info": [[0, 0.8, 1], [0, 0.7, 2], [0, 2.5, 5], [0, 0.2, 1]],
+  "parameters": {
+    "tau": [0, 0.8, 1],
+    "rho": [0, 0.7, 2],
+    "lambda": [0, 2.5, 5],
+    "beta": [0, 0.2, 1]
+  },
   "postpreds": ["y_pred"]
 }

@@ -3,10 +3,15 @@
   "model_name": "rp",
   "model_type": "",
   "data_columns": ["subjID", "choice", "outcome"],
-  "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
-  "parameters": ["Apun", "Arew", "beta"],
-  "parameters_info": [[0, 0.1, 1], [0, 0.1, 1], [0, 1, 10]],
-  "regressors": ["ev_c", "ev_nc", "pe"],
-  "regressors_info": [2, 2, 2],
+  "parameters": {
+    "Apun": [0, 0.1, 1],
+    "Arew": [0, 0.1, 1],
+    "beta": [0, 1, 10]
+  },
+  "regressors": {
+    "ev_c": 2,
+    "ev_nc": 2,
+    "pe": 2
+  },
   "postpreds": ["y_pred"]
 }

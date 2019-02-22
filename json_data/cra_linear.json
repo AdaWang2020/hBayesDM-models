@@ -3,10 +3,16 @@
   "model_name": "linear",
   "model_type": "",
   "data_columns": ["subjID", "prob", "ambig", "reward_var", "reward_fix", "choice"],
-  "data_for_stan": ["N", "T", "Tsubj", "choice", "prob", "ambig", "reward_var", "reward_fix"],
-  "parameters": ["alpha", "beta", "gamma"],
-  "parameters_info": [[0, 1, 2], ["-Inf", 0, "Inf"], [0, 1, "Inf"]],
-  "regressors": ["sv", "sv_fix", "sv_var", "p_var"],
-  "regressors_info": [2, 2, 2, 2],
+  "parameters": {
+    "alpha": [0, 1, 2],
+    "beta": ["-Inf", 0, "Inf"],
+    "gamma": [0, 1, "Inf"]
+  },
+  "regressors": {
+    "sv": 2,
+    "sv_fix": 2,
+    "sv_var": 2,
+    "p_var": 2
+  },
   "postpreds": ["y_pred"]
 }

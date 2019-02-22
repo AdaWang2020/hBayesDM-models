@@ -3,8 +3,13 @@
   "model_name": "par6",
   "model_type": "",
   "data_columns": ["subjID", "level1_choice", "level2_choice", "reward"],
-  "data_for_stan": ["N", "T", "Tsubj", "level1_choice", "level2_choice", "reward", "trans_prob"],
-  "parameters": ["a1", "beta1", "a2", "beta2", "pi", "w"],
-  "parameters_info": [[0, 0.5, 1], [0, 1, "Inf"], [0, 0.5, 1], [0, 1, "Inf"], [0, 1, 5], [0, 0.5, 1]],
+  "parameters": {
+    "a1": [0, 0.5, 1],
+    "beta1": [0, 1, "Inf"],
+    "a2": [0, 0.5, 1],
+    "beta2": [0, 1, "Inf"],
+    "pi": [0, 1, 5],
+    "w": [0, 0.5, 1]
+  },
   "postpreds": ["y_pred_step1", "y_pred_step2"]
 }

@@ -3,8 +3,10 @@
   "model_name": "ocu",
   "model_type": "",
   "data_columns": ["subjID", "condition", "p_gamble", "safe_Hpayoff", "safe_Lpayoff", "risky_Hpayoff", "risky_Lpayoff", "choice"],
-  "data_for_stan": ["N", "T", "Tsubj", "condition", "p_gamble", "safe_Hpayoff", "safe_Lpayoff", "risky_Hpayoff", "risky_Lpayoff", "choice"],
-  "parameters": ["rho", "tau", "ocu"],
-  "parameters_info": [[0, 1, 2], [0, 1, "Inf"], ["-Inf", 0, "Inf"]],
+  "parameters": {
+    "rho": [0, 1, 2],
+    "tau": [0, 1, "Inf"],
+    "ocu": ["-Inf", 0, "Inf"]
+  },
   "postpreds": ["y_pred"]
 }

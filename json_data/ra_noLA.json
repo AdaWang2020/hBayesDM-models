@@ -3,8 +3,9 @@
   "model_name": "noLA",
   "model_type": "",
   "data_columns": ["subjID", "gain", "loss", "cert", "gamble"],
-  "data_for_stan": ["N", "T", "Tsubj", "gain", "loss", "cert", "gamble"],
-  "parameters": ["rho", "tau"],
-  "parameters_info": [[0, 1, 2], [0, 1, 30]],
+  "parameters": {
+    "rho": [0, 1, 2],
+    "tau": [0, 1, 30]
+  },
   "postpreds": ["y_pred"]
 }

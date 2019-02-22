@@ -3,8 +3,11 @@
   "model_name": "par4",
   "model_type": "",
   "data_columns": ["subjID", "pumps", "explosion"],
-  "data_for_stan": ["N", "T", "Tsubj", "P", "pumps", "explosion"],
-  "parameters": ["phi", "eta", "gam", "tau"],
-  "parameters_info": [[0, 0.5, 1], [0, 1, "Inf"], [0, 1, "Inf"], [0, 1, "Inf"]],
+  "parameters": {
+    "phi": [0, 0.5, 1],
+    "eta": [0, 1, "Inf"],
+    "gam": [0, 1, "Inf"],
+    "tau": [0, 1, "Inf"]
+  },
   "postpreds": ["y_pred"]
 }

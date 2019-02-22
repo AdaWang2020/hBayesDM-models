@@ -3,8 +3,11 @@
   "model_name": "pvl_decay",
   "model_type": "",
   "data_columns": ["subjID", "choice", "gain", "loss"],
-  "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
-  "parameters": ["A", "alpha", "cons", "lambda"],
-  "parameters_info": [[0, 0.5, 1], [0, 0.5, 2], [0, 1, 5], [0, 1, 10]],
+  "parameters": {
+    "A": [0, 0.5, 1],
+    "alpha": [0, 0.5, 2],
+    "cons": [0, 1, 5],
+    "lambda": [0, 1, 10]
+  },
   "postpreds": ["y_pred"]
 }

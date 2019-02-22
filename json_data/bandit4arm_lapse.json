@@ -3,8 +3,12 @@
   "model_name": "lapse",
   "model_type": "",
   "data_columns": ["subjID", "choice", "gain", "loss"],
-  "data_for_stan": ["N", "T", "Tsubj", "rew", "los", "choice"],
-  "parameters": ["Arew", "Apun", "R", "P", "xi"],
-  "parameters_info": [[0, 0.1, 1], [0, 0.1, 1], [0, 1, 30], [0, 1, 30], [0, 0.1, 1]],
+  "parameters": {
+    "Arew": [0, 0.1, 1],
+    "Apun": [0, 0.1, 1],
+    "R": [0, 1, 30],
+    "P": [0, 1, 30],
+    "xi": [0, 0.1, 1]
+  },
   "postpreds": ["y_pred"]
 }

@@ -3,8 +3,11 @@
   "model_name": "ddm",
   "model_type": "single",
   "data_columns": ["subjID", "choice", "RT"],
-  "data_for_stan": ["Nu", "Nl", "RTu", "RTl", "minRT", "RTbound"],
-  "parameters": ["alpha", "beta", "delta", "tau"],
-  "parameters_info": [[null, 0.5, null], [null, 0.5, null], [null, 0.5, null], [null, 0.15, null]],
+  "parameters": {
+    "alpha": [null, 0.5, null],
+    "beta": [null, 0.5, null],
+    "delta": [null, 0.5, null],
+    "tau": [null, 0.15, null]
+  },
   "postpreds": []
 }

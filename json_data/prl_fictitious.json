@@ -3,10 +3,17 @@
   "model_name": "fictitious",
   "model_type": "",
   "data_columns": ["subjID", "choice", "outcome"],
-  "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome"],
-  "parameters": ["eta", "alpha", "beta"],
-  "parameters_info": [[0, 0.5, 1], ["-Inf", 0, "Inf"], [0, 1, 10]],
-  "regressors": ["ev_c", "ev_nc", "pe_c", "pe_nc", "dv"],
-  "regressors_info": [2, 2, 2, 2, 2],
+  "parameters": {
+    "eta": [0, 0.5, 1],
+    "alpha": ["-Inf", 0, "Inf"],
+    "beta": [0, 1, 10]
+  },
+  "regressors": {
+    "ev_c": 2,
+    "ev_nc": 2,
+    "pe_c": 2,
+    "pe_nc": 2,
+    "dv": 2
+  },
   "postpreds": ["y_pred"]
 }

@@ -3,8 +3,12 @@
   "model_name": "orl",
   "model_type": "",
   "data_columns": ["subjID", "choice", "gain", "loss"],
-  "data_for_stan": ["N", "T", "Tsubj", "choice", "outcome", "sign_out"],
-  "parameters": ["Arew", "Apun", "K", "betaF", "betaP"],
-  "parameters_info": [[0, 0.1, 1], [0, 0.1, 1], [0, 0.1, 5], ["-Inf", 0.1, "Inf"], ["-Inf", 1, "Inf"]],
+  "parameters": {
+    "Arew": [0, 0.1, 1],
+    "Apun": [0, 0.1, 1],
+    "K": [0, 0.1, 5],
+    "betaF": ["-Inf", 0.1, "Inf"],
+    "betaP": ["-Inf", 1, "Inf"]
+  },
   "postpreds": ["y_pred"]
 }
