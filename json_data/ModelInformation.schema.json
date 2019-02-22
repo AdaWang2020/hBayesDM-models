@@ -31,7 +31,8 @@
           "maxItems": 3,
           "items": {
             "type": ["number", "string", "null"],
-            "pattern": "^(-?[Ii]nf|exp\\([0-9.]\\))$"
+            "description": "** Edit below to add more allowed patterns **",
+            "pattern": "^(-?Inf|exp\\([0-9.]+\\))$"
           }
         }
       }
@@ -41,6 +42,7 @@
       "patternProperties": {
         "^.*$": {
           "type": "integer",
+          "description": "** Edit below to add more allowed values **",
           "enum": [2, 3]
         }
       }
@@ -49,6 +51,7 @@
       "type": "array",
       "items": {
         "type": "string",
+        "description": "** Edit below to add more allowed values **",
         "enum": ["y_pred", "y_pred_step1", "y_pred_step2"]
       }
     }
