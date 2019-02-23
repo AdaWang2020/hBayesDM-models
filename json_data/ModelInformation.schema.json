@@ -3,6 +3,7 @@
   "description": "Written by Jethro Lee",
   "type": "object",
   "required": ["task_name", "model_name", "model_type", "data_columns", "parameters", "postpreds"],
+  "additionalProperties": false,
   "properties": {
     "task_name": {
       "type": "string"
