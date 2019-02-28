@@ -1,0 +1,15 @@
+{
+  "task_name": "bandit4arm",
+  "model_name": "lapse_decay",
+  "model_type": "",
+  "data_columns": ["subjID", "choice", "gain", "loss"],
+  "parameters": {
+    "Arew": [0, 0.1, 1],
+    "Apun": [0, 0.1, 1],
+    "R": [0, 1, 30],
+    "P": [0, 1, 30],
+    "xi": [0, 0.1, 1],
+    "d": [0, 0.1, 1]
+  },
+  "postpreds": ["y_pred"]
+}

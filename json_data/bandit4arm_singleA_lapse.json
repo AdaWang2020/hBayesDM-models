@@ -1,0 +1,13 @@
+{
+  "task_name": "bandit4arm",
+  "model_name": "singleA_lapse",
+  "model_type": "",
+  "data_columns": ["subjID", "choice", "gain", "loss"],
+  "parameters": {
+    "A": [0, 0.1, 1],
+    "R": [0, 1, 30],
+    "P": [0, 1, 30],
+    "xi": [0, 0.1, 1]
+  },
+  "postpreds": ["y_pred"]
+}

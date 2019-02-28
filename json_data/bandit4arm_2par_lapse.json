@@ -1,0 +1,12 @@
+{
+  "task_name": "bandit4arm",
+  "model_name": "2par_lapse",
+  "model_type": "",
+  "data_columns": ["subjID", "choice", "gain", "loss"],
+  "parameters": {
+    "Arew": [0, 0.1, 1],
+    "Apun": [0, 0.1, 1],
+    "xi": [0, 0.1, 1]
+  },
+  "postpreds": ["y_pred"]
+}
