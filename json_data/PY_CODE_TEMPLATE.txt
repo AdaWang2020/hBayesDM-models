@@ -1,0 +1,56 @@
+from typing import Sequence, Union, Any
+
+import pandas as pd
+
+from hbayesdm.base import TaskModel
+from hbayesdm.preprocess_funcs import {task_name}_preprocess_func
+
+__all__ = ['{model}']
+
+
+class {class_name}(TaskModel):
+    def _preprocess_func(self, raw_data, general_info, additional_args):
+        pass
+
+
+{class_name}._preprocess_func = {task_name}_preprocess_func
+
+
+def {model}(
+        example: bool = False,
+        datafile: str = None,
+        data: pd.DataFrame = None,
+        niter: int = 4000,
+        nwarmup: int = 1000,
+        nchain: int = 4,
+        ncore: int = 1,
+        nthin: int = 1,
+        inits: Union[str, Sequence[float]] = 'random',
+        ind_pars: str = 'mean',
+        model_regressor: bool = False,
+        vb: bool = False,
+        inc_postpred: bool = False,
+        adapt_delta: float = 0.95,
+        stepsize: float = 1,
+        max_treedepth: int = 10,
+        **additional_args: Any) -> TaskModel:
+    """{docstring_template}"""
+    return {class_name}.init_from_json_file(
+        '{model}.json',
+        example=example,
+        datafile=datafile,
+        data=data,
+        niter=niter,
+        nwarmup=nwarmup,
+        nchain=nchain,
+        ncore=ncore,
+        nthin=nthin,
+        inits=inits,
+        ind_pars=ind_pars,
+        model_regressor=model_regressor,
+        vb=vb,
+        inc_postpred=inc_postpred,
+        adapt_delta=adapt_delta,
+        stepsize=stepsize,
+        max_treedepth=max_treedepth,
+        **additional_args)

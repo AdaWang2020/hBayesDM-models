@@ -1,0 +1,25 @@
+TODO: documentation
+
+    Parameters
+    ----------
+    example
+    datafile
+    data
+    niter
+    nwarmup
+    nchain
+    ncore
+    nthin
+    inits
+    ind_pars
+    model_regressor
+    vb
+    inc_postpred
+    adapt_delta
+    stepsize
+    max_treedepth
+    additional_args
+
+    Returns
+    -------
+    model_data
