@@ -54,8 +54,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '-v', '--verbose',
         help='Whether to print the output instead of writing a file',
-        action='store_true',
-        default='output.csv')
+        action='store_true')
     parser.add_argument(
         'json_file',
         help=('A JSON file about a model to generate a corresponding '
