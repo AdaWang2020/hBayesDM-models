@@ -50,3 +50,19 @@ To validate all JSON files in directory, use following shell script:
 ```sh
 ./ValidateAll.sh
 ```
+
+## Code generation
+
+
+```
+$ ./WritePython.py -h
+usage: WritePython.py [-h] [-v] json_file
+
+positional arguments:
+  json_file      A JSON file about a model to generate a corresponding Python
+                 code
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -v, --verbose  Whether to print the output instead of writing a file
+```
