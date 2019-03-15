@@ -34,7 +34,7 @@ def {model}(
         stepsize: float = 1,
         max_treedepth: int = 10,
         **additional_args: Any) -> TaskModel:
-    """{docstring_template}"""
+    """{docstring_template}    """
     return {class_name}.init_from_json_file(
         '{model}.json',
         example=example,
