@@ -3,17 +3,17 @@
 Written by Jethro Lee.
 """
 import sys
-import json
 import argparse
-from collections import OrderedDict
+import json
 from pathlib import Path
+from collections import OrderedDict
 
 
 def main(json_file, verbose):
-    # Make a Path object for the given filename
+    # Make Path object for given filename
     path_fn = Path(json_file)
 
-    # Check if the file exists
+    # Check if file exists
     if not path_fn.exists():
         print('FileNotFound: Please specify existing json_file as argument.')
         sys.exit(1)
@@ -22,10 +22,10 @@ def main(json_file, verbose):
     with open(path_fn, 'r') as f:
         model_info = json.load(f, object_pairs_hook=OrderedDict)
 
-    # Model full name (Snakecase)
+    # Model full name (Snake-case)
     full_name = path_fn.name.replace('.json', '')
 
-    # Model class name (Pascalcase)
+    # Model class name (Pascal-case)
     class_name = full_name.title().replace('_', '')
 
     # Read template for docstring
@@ -36,12 +36,12 @@ def main(json_file, verbose):
     with open('PY_CODE_TEMPLATE.txt', 'r') as f:
         code_template = f.read().format(
             task_name=model_info['task_name'],
-            model=full_name,
+            full_name=full_name,
             class_name=class_name,
             docstring_template=docstring_template)
 
     if verbose:
-        # Just print the code string into stdin
+        # Print code string to stdout
         print(code_template)
     else:
         # Write model python code
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-v', '--verbose',
-        help='Whether to print the output instead of writing a file',
+        help='Whether to print output to stdout instead of writing to file',
         action='store_true',
         default='output.csv')
     parser.add_argument(
