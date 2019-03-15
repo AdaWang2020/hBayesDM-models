@@ -5,7 +5,7 @@ import pandas as pd
 from hbayesdm.base import TaskModel
 from hbayesdm.preprocess_funcs import {task_name}_preprocess_func
 
-__all__ = ['{model}']
+__all__ = ['{full_name}']
 
 
 class {class_name}(TaskModel):
@@ -16,7 +16,7 @@ class {class_name}(TaskModel):
 {class_name}._preprocess_func = {task_name}_preprocess_func
 
 
-def {model}(
+def {full_name}(
         example: bool = False,
         datafile: str = None,
         data: pd.DataFrame = None,
@@ -36,7 +36,7 @@ def {model}(
         **additional_args: Any) -> TaskModel:
     """{docstring_template}    """
     return {class_name}.init_from_json_file(
-        '{model}.json',
+        '{full_name}.json',
         example=example,
         datafile=datafile,
         data=data,
