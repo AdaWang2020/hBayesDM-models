@@ -72,4 +72,6 @@ Example (to generate `_gng_m1.py` from `gng_m1.json`):
 
 ```sh
 ./WritePython.py gng_m1.json
+
+# A new file named `_gng_m1.py` will have been created as a result
 ```
