@@ -68,7 +68,7 @@ optional arguments:
   -v, --verbose  print output to stdout instead of writing to file
 ```
 
-Example (to generate `_gng_m1.py` from `gng_m1.json`):
+E.g. (generate `_gng_m1.py` from `gng_m1.json`):
 
 ```sh
 $ ./WritePython.py gng_m1.json
