@@ -53,12 +53,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-v', '--verbose',
-        help='Whether to print the output instead of writing a file',
+        help='print output to stdout instead of writing to file',
         action='store_true')
     parser.add_argument(
         'json_file',
-        help=('A JSON file about a model to generate a corresponding '
-              'Python code'),
+        help='JSON file of the model to generate corresponding python code',
         type=str)
 
     args = parser.parse_args()

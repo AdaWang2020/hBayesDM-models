@@ -1,14 +1,13 @@
 # Model Information JSON Files
 
-Greatly contributed by [Jethro Lee][jethro-lee].
+Contributed by [Jethro Lee][jethro-lee].
 
 [jethro-lee]: https://github.com/dlemfh
 
-## Schema
+## JSON Schema
 
-All the information is stored in `ModelInformation.schema.json` in a JSON schema
-format.
-
+Schema for the Model Information JSON files is stored in
+`ModelInformation.schema.json` as a JSON Schema format.
 
 | Property       | Required | Type             | Explanation
 |----------------|----------|------------------|-------------------------------|
@@ -25,16 +24,16 @@ format.
 - Strings: `"Inf"`, `"-Inf"`, `"exp([0-9.]+)"`
 - `null`
 
-## Example
+## JSON Example
 
 ***It would be better to provide an example for this. It's a little hard to find
 what developers should do to add a model.***
 
-## Validation
+## JSON Validation
 
 Validating against the current Schema file is a good basis to see if you've
 written the model JSON file correctly.
-To validate the JSON file, you should have [`jsonschema`][jsonschema]; you can
+To validate JSON files, you need to have [`jsonschema`][jsonschema] installed; you can
 install it with `pip install jsonschema`.
 
 [jsonschema]: https://github.com/Julian/jsonschema
@@ -51,18 +50,26 @@ To validate all JSON files in directory, use following shell script:
 ./ValidateAll.sh
 ```
 
-## Code generation
+## Automated Python Code Generation
 
+Once you've (correctly) written the JSON file for a new model, it's possible to
+automatically generate the corresponding python code for the new model,
+using the python script `WritePython.py`:
 
-```
+```sh
 $ ./WritePython.py -h
 usage: WritePython.py [-h] [-v] json_file
 
 positional arguments:
-  json_file      A JSON file about a model to generate a corresponding Python
-                 code
+  json_file      JSON file of the model to generate corresponding python code
 
 optional arguments:
   -h, --help     show this help message and exit
-  -v, --verbose  Whether to print the output instead of writing a file
+  -v, --verbose  print output to stdout instead of writing to file
+```
+
+Example (to generate `_gng_m1.py` from `gng_m1.json`):
+
+```sh
+./WritePython.py gng_m1.json
 ```
