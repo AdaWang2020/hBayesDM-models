@@ -45,8 +45,10 @@ def main(json_file, verbose):
         print(code_template)
     else:
         # Write model python code
-        with open('_' + full_name + '.py', 'w') as f:
+        code_fn = '_' + full_name + '.py'
+        with open(code_fn, 'w') as f:
             f.write(code_template)
+        print('Created file: ' + code_fn)
 
 
 if __name__ == '__main__':

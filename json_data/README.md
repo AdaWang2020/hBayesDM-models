@@ -41,13 +41,13 @@ install it with `pip install jsonschema`.
 To validate a single JSON file (e.g. `gng_m1.json`):
 
 ```sh
-jsonschema -i gng_m1.json ModelInformation.schema.json
+$ jsonschema -i gng_m1.json ModelInformation.schema.json
 ```
 
 To validate all JSON files in directory, use following shell script:
 
 ```sh
-./ValidateAll.sh
+$ ./ValidateAll.sh
 ```
 
 ## Automated Python Code Generation
@@ -71,7 +71,6 @@ optional arguments:
 Example (to generate `_gng_m1.py` from `gng_m1.json`):
 
 ```sh
-./WritePython.py gng_m1.json
-
-# A new file named `_gng_m1.py` will have been created as a result
+$ ./WritePython.py gng_m1.json
+Created file: _gng_m1.py
 ```
