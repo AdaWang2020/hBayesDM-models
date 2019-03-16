@@ -56,7 +56,7 @@ Once you've (correctly) written the JSON file for a new model, it's possible to
 automatically generate the corresponding python code for the new model,
 using the python script `WritePython.py`:
 
-```sh
+```
 $ ./WritePython.py -h
 usage: WritePython.py [-h] [-v] json_file
 
