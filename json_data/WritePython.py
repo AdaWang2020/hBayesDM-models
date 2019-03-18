@@ -124,7 +124,7 @@ def format_model_regressor_return(regressors: OrderedDict) -> str:
 
 def format_postpreds_not_available(postpreds: List) -> str:
     if not postpreds:
-        return '**(Currently not available.)**'
+        return '**(Currently not available.) **'
     else:
         return ''
 

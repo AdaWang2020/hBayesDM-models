@@ -42,7 +42,7 @@
         Whether to use variational inference to approximately draw from a
         posterior distribution. Defaults to ``False``.
     inc_postpred
-        {postpreds_not_available} Include trial-level posterior predictive
+        {postpreds_not_available}Include trial-level posterior predictive
         simulations in model output (may greatly increase file size). Defaults to ``False``.
     adapt_delta
         Floating point value representing the target acceptance probability of a new
