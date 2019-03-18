@@ -23,10 +23,10 @@ def main(json_file, verbose):
         model_info = json.load(f, object_pairs_hook=OrderedDict)
 
     # Model full name (Snake-case)
-    full_name = path_fn.name.replace('.json', '')
+    model_function = path_fn.name.replace('.json', '')
 
     # Model class name (Pascal-case)
-    class_name = full_name.title().replace('_', '')
+    class_name = model_function.title().replace('_', '')
 
     # Read template for docstring
     with open('PY_DOCSTRING_TEMPLATE.txt', 'r') as f:
@@ -36,7 +36,7 @@ def main(json_file, verbose):
     with open('PY_CODE_TEMPLATE.txt', 'r') as f:
         code_template = f.read().format(
             task_name=model_info['task_name'],
-            full_name=full_name,
+            model_function=model_function,
             class_name=class_name,
             docstring_template=docstring_template)
 
@@ -45,7 +45,7 @@ def main(json_file, verbose):
         print(code_template)
     else:
         # Write model python code
-        code_fn = '_' + full_name + '.py'
+        code_fn = '_' + model_function + '.py'
         with open(code_fn, 'w') as f:
             f.write(code_template)
         print('Created file: ' + code_fn)
