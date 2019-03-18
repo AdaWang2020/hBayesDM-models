@@ -1,12 +1,38 @@
 {
-  "task_name": "gng",
-  "model_name": "m1",
-  "model_type": "",
-  "data_columns": ["subjID", "cue", "keyPressed", "outcome"],
+  "task_name": {
+    "code": "gng",
+    "desc": "Orthogonalized Go/Nogo Task",
+    "cite": ""
+  },
+  "model_name": {
+    "code": "m1",
+    "desc": "RW + noise",
+    "cite": "(Guitart-Masip et al., 2012, Neuroimage)"
+  },
+  "model_type": {
+    "code": "",
+    "desc": "Hierarchical"
+  },
+  "contributors": [],
+  "data_columns": {
+    "subjID": "A unique identifier for each subject in the data-set.",
+    "cue": "Nominal integer representing the cue shown for that trial: 1, 2, 3, or 4.",
+    "keyPressed": "Binary value representing the subject's response for that trial (where Press == 1; No press == 0).",
+    "outcome": "Ternary value representing the outcome of that trial (where Positive feedback == 1; Neutral feedback == 0; Negative feedback == -1)."
+  },
   "parameters": {
-    "xi": [0, 0.1, 1],
-    "ep": [0, 0.2, 1],
-    "rho": [0, "exp(2)", "Inf"]
+    "xi": {
+      "desc": "noise",
+      "info": [0, 0.1, 1]
+    },
+    "ep": {
+      "desc": "learning rate",
+      "info": [0, 0.2, 1]
+    },
+    "rho": {
+      "desc": "effective size",
+      "info": [0, "exp(2)", "Inf"]
+    }
   },
   "regressors": {
     "Qgo": 2,
@@ -14,5 +40,6 @@
     "Wgo": 2,
     "Wnogo": 2
   },
-  "postpreds": ["y_pred"]
+  "postpreds": ["y_pred"],
+  "additional_args": []
 }
