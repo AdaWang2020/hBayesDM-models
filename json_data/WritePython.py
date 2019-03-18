@@ -65,6 +65,7 @@ def main(json_file, verbose):
         # Write model python code
         code_fn = '_' + model_function + '.py'
         with open(code_fn, 'w') as f:
+            f.write('"""\nGenerated via pre-written template. Do not edit by hand.\n"""\n')
             f.write(code_template)
         print('Created file: ' + code_fn)
 
