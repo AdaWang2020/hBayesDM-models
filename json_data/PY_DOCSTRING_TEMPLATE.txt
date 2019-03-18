@@ -37,7 +37,7 @@
         String specifying how to summarize the individual parameters.
         Current options are: ``'mean'``, ``'median'``, or ``'mode'``.
     model_regressor
-        Whether to export model-based regressors. {model_regressor_parameter}
+        Whether to export model-based regressors. {model_regressor_parameter}.
     vb
         Whether to use variational inference to approximately draw from a
         posterior distribution. Defaults to ``False``.
