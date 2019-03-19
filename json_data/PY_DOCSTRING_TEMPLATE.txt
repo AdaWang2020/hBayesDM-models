@@ -32,11 +32,9 @@
     datafile
         Path for a TSV file containing the data to be modeled.
         Data columns should be labeled as: {data_columns}.
-        See **Details** below for more information.
     data
         Pandas DataFrame object holding the data to be modeled.
         Data columns should be labeled as: {data_columns}.
-        See **Details** below for more information.
     niter
         Number of iterations, including warm-up. Defaults to 4000.
     nwarmup
@@ -91,31 +89,31 @@
         model output (may greatly increase file size). Defaults to ``False``.
     adapt_delta
         Floating point value representing the target acceptance probability of a new
-        sample in the MCMC chain. Must be between 0 and 1. See **Details** below.
+        sample in the MCMC chain. Must be between 0 and 1. See note below.
     stepsize
         Integer value specifying the size of each leapfrog step that the MCMC sampler
-        can take on each new iteration. See **Details** below.
+        can take on each new iteration. See note below.
     max_treedepth
         Integer value specifying how many leapfrog steps the MCMC sampler can take
-        on each new iteration. See **Details** below.
+        on each new iteration. See note below.
     additional_args
         {additional_args}
 
     .. note::
 
-       ``adapt_delta``, ``stepsize``, and ``max_treedepth`` are advanced options that
-       give the user more control over Stan's MCMC sampler. It is recommended that
-       only advanced users change the default values, as alterations can profoundly
-       change the sampler's behavior. See [Hoffman2014]_ for more information on the
-       sampler control parameters. One can also refer to 'Section 34.2. HMC Algorithm
-       Parameters' of the `Stan User's Guide and Reference Manual`__.
+        ``adapt_delta``, ``stepsize``, and ``max_treedepth`` are advanced options that
+        give the user more control over Stan's MCMC sampler. It is recommended that
+        only advanced users change the default values, as alterations can profoundly
+        change the sampler's behavior. See [Hoffman2014]_ for more information on the
+        sampler control parameters. One can also refer to 'Section 34.2. HMC Algorithm
+        Parameters' of the `Stan User's Guide and Reference Manual`__.
 
-       .. [Hoffman2014]
-           Hoffman, M. D., & Gelman, A. (2014).
-           The No-U-Turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo.
-           Journal of Machine Learning Research, 15(1), 1593-1623.
+        .. [Hoffman2014]
+            Hoffman, M. D., & Gelman, A. (2014).
+            The No-U-Turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo.
+            Journal of Machine Learning Research, 15(1), 1593-1623.
 
-       __ http://mc-stan.org/users/documentation/
+        __ http://mc-stan.org/users/documentation/
 
     Returns
     -------
