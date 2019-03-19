@@ -1,4 +1,5 @@
 from typing import Sequence, Union, Any
+from collections import OrderedDict
 
 from numpy import Inf, exp
 import pandas as pd
@@ -18,19 +19,16 @@ class {class_name}(TaskModel):
             data_columns=(
                 {data_columns}
             ),
-            # TODO: from here
             parameters=OrderedDict([
-                ('xi', (0, 0.1, 1)),
-                ('ep', (0, 0.2, 1)),
-                ('rho', (0, np.exp(2), np.inf)),
+                {parameters}
             ]),
             regressors=OrderedDict([
-                ('Qgo', 2),
-                ('Qnogo', 2),
-                ('Wgo', 2),
-                ('Wnogo', 2),
+                {regressors}
             ]),
-            postpreds=['y_pred'],
+            postpreds=[{postpreds}],
+            additional_args_info=OrderedDict([
+                {additional_args_info}
+            ]),
         )
 
     def _preprocess_func(self, raw_data, general_info, additional_args):

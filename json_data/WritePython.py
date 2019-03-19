@@ -6,7 +6,7 @@ import sys
 import argparse
 import json
 from pathlib import Path
-from typing import List
+from typing import List, Iterable, Callable
 from collections import OrderedDict
 
 
@@ -38,21 +38,31 @@ def main(json_file, verbose):
             model_name=model_info['model_name']['desc'],
             model_cite=model_info['model_name']['cite'],
             model_type=model_info['model_type']['desc'],
-            contributors=format_list(
-                model_info['contributors'], 'name', 'email',
-                f='.. codeauthor:: {} <{}>', sep='\n    '),
-            data_columns=format_dict_keys(
-                model_info['data_columns'], f='"{}"', sep=', '),
+            contributors=format_list_of_dict(
+                model_info['contributors'],
+                'name', 'email',
+                f='.. codeauthor:: {} <{}>',
+                sep='\n    '),
+            data_columns=format_list(
+                model_info['data_columns'],
+                f='"{}"',
+                sep=', '),
             data_columns_len=len(model_info['data_columns']),
-            data_columns_details=format_dict_items(
-                model_info['data_columns'], f='- "{}": {}', sep='\n    '),
-            parameters=format_parameters(model_info['parameters']),
-            model_regressor_parameter=format_model_regressor_parameter(
+            data_columns_details=format_dict(
+                model_info['data_columns'],
+                f='- "{}": {}',
+                sep='\n    '),
+            parameters=format_parameters(
+                model_info['parameters'],
+                lambda v: v['desc'],
+                f='"{}" ({})',
+                sep=', '),
+            model_regressor_parameter=message_model_regressor_parameter(
                 model_info['regressors']),
-            model_regressor_return=format_model_regressor_return(
+            model_regressor_return=message_model_regressor_return(
                 model_info['regressors']),
-            postpreds=format_postpreds(model_info['postpreds']),
-            additional_args=format_additional_args(
+            postpreds=message_postpreds(model_info['postpreds']),
+            additional_args=message_additional_args(
                 model_info['additional_args']),
         )
 
@@ -65,9 +75,28 @@ def main(json_file, verbose):
             task_name=model_info['task_name']['code'],
             model_name=model_info['model_name']['code'],
             model_type=model_info['model_type']['code'],
-            data_columns=format_dict_keys(
+            data_columns=format_list(
                 model_info['data_columns'],
-                f="'{}'", sep=',\n                '),
+                f="'{}',",
+                sep='\n                '),
+            parameters=format_parameters(
+                model_info['parameters'],
+                lambda v: ', '.join(map(str, v['info'])),
+                f="('{}', ({})),",
+                sep='\n                '),
+            regressors=format_dict(
+                model_info['regressors'],
+                f="('{}', {}),",
+                sep='\n                '),
+            postpreds=format_list(
+                model_info['postpreds'],
+                f="'{}'",
+                sep=', '),
+            additional_args_info=format_list_of_dict(
+                model_info['additional_args'],
+                'code', 'default',
+                f="('{}', {}),",
+                sep='\n                '),
         )
 
     if verbose:
@@ -82,32 +111,41 @@ def main(json_file, verbose):
         print('Created file: ' + code_fn)
 
 
-def format_list(data: List, *keys: str, f: str, sep: str):
-    return sep.join([f.format(*(d[k] for k in keys)) for d in data])
+def format_list(data: Iterable,
+                f: str,
+                sep: str) -> str:
+    return sep.join(map(f.format, data))
 
 
-def format_dict_keys(data: OrderedDict, f: str, sep: str) -> str:
-    return sep.join([f.format(k) for k in data.keys()])
+def format_dict(data: OrderedDict,
+                f: str,
+                sep: str) -> str:
+    return sep.join(f.format(k, v) for k, v in data.items())
 
 
-def format_dict_items(data: OrderedDict, f: str, sep: str) -> str:
-    return sep.join([f.format(k, v) for k, v in data.items()])
+def format_list_of_dict(data: List[OrderedDict],
+                        *keys: str,
+                        f: str,
+                        sep: str) -> str:
+    return sep.join(f.format(*(d[k] for k in keys)) for d in data)
 
 
-def format_parameters(parameters: OrderedDict) -> str:
-    return ', '.join(
-        ['"{}" ({})'.format(k, v['desc']) for k, v in parameters.items()])
+def format_parameters(parameters: OrderedDict,
+                      l: Callable,
+                      f: str,
+                      sep: str) -> str:
+    return sep.join(f.format(k, l(v)) for k, v in parameters.items())
 
 
-def format_model_regressor_parameter(regressors: OrderedDict) -> str:
+def message_model_regressor_parameter(regressors: OrderedDict) -> str:
     if regressors:
-        return 'For this model they are: ' + format_dict_keys(
+        return 'For this model they are: ' + format_list(
             regressors, f='"{}"', sep=', ')
     else:
         return 'Currently not available for this model'
 
 
-def format_model_regressor_return(regressors: OrderedDict) -> str:
+def message_model_regressor_return(regressors: OrderedDict) -> str:
     if regressors:
         return (
             '- ``model_regressor``: '
@@ -116,21 +154,23 @@ def format_model_regressor_return(regressors: OrderedDict) -> str:
         return ''
 
 
-def format_postpreds(postpreds: List) -> str:
+def message_postpreds(postpreds: List) -> str:
     if not postpreds:
         return '**(Currently not available.) **'
     else:
         return ''
 
 
-def format_additional_args(additional_args: List) -> str:
+def message_additional_args(additional_args: List) -> str:
     if additional_args:
         return (
-            'For this model, it\'s possible to set the following **model-'
-            + 'specific argument** to a value that you may prefer.\n\n        '
-            + format_list(
-                additional_args, 'code', 'desc',
-                f='- ``{}``: {}', sep='\n        '))
+            'For this model, it\'s possible to set the following model-'
+            + 'specific argument to a value that you may prefer.\n\n        '
+            + format_list_of_dict(
+                additional_args,
+                'code', 'desc',
+                f='- ``{}``: {}',
+                sep='\n        '))
     else:
         return 'Not used for this model.'
 
