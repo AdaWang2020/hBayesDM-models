@@ -32,11 +32,7 @@ class {class_name}(TaskModel):
             **kwargs,
         )
 
-    def _preprocess_func(self, raw_data, general_info, additional_args):
-        pass
-
-
-{class_name}._preprocess_func = {task_name}_preprocess_func
+    _preprocess_func = {task_name}_preprocess_func
 
 
 def {model_function}(
