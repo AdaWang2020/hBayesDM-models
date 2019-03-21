@@ -5,6 +5,7 @@ Written by Jethro Lee.
 import sys
 import argparse
 import json
+import re
 from pathlib import Path
 from typing import List, Iterable, Callable
 from collections import OrderedDict
@@ -29,14 +30,39 @@ def main(json_file, verbose):
     # Model class name (Pascal-case)
     class_name = model_function.title().replace('_', '')
 
+    # Preprocess citations
+    def shortify(cite: str) -> str:
+        last_name = cite[:cite.find(',')].replace(' ', '_')
+        m = re.search('\\((\\d{4})\\)\\.', cite)
+        year = m.group(1) if m else ''
+        return last_name + year
+    task_cite = OrderedDict(
+        (shortify(cite), cite) for cite in model_info['task_name']['cite'])
+    model_cite = OrderedDict(
+        (shortify(cite), cite) for cite in model_info['model_name']['cite'])
+
     # Read template for docstring
     with open('PY_DOCSTRING_TEMPLATE.txt', 'r') as f:
         docstring_template = f.read().format(
             model_function=model_function,
             task_name=model_info['task_name']['desc'],
-            task_cite=model_info['task_name']['cite'],
+            task_cite_short=format_list(
+                task_cite,
+                f='[{}]_',
+                sep=', '),
+            task_cite_long=format_dict(
+                task_cite,
+                f='.. [{}] {}',
+                sep='\n    '),
             model_name=model_info['model_name']['desc'],
-            model_cite=model_info['model_name']['cite'],
+            model_cite_short=format_list(
+                model_cite,
+                f='[{}]_',
+                sep=', '),
+            model_cite_long=format_dict(
+                model_cite,
+                f='.. [{}] {}',
+                sep='\n    '),
             model_type=model_info['model_type']['desc'],
             contributors=format_list_of_dict(
                 model_info['contributors'],

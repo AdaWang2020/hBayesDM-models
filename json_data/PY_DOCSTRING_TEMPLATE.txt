@@ -1,8 +1,11 @@
 {task_name} - {model_name}
 
-    {model_type} Bayesian Modeling of the {task_name} {task_cite}
-    using {model_name} {model_cite} with the following parameters:
+    {model_type} Bayesian Modeling of the {task_name} {task_cite_short}
+    using {model_name} {model_cite_short} with the following parameters:
     {parameters}.
+
+    {task_cite_long}
+    {model_cite_long}
 
     {contributors}
 
