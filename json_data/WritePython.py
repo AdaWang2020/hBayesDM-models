@@ -33,7 +33,7 @@ def main(json_file, verbose):
     # Preprocess citations
     def shortify(cite: str) -> str:
         last_name = cite[:cite.find(',')].replace(' ', '_')
-        m = re.search('\\((\\d{4})\\)\\.', cite)
+        m = re.search('\\((\\d{4})\\)', cite)
         year = m.group(1) if m else ''
         return last_name + year
     task_cite = OrderedDict(
