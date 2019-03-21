@@ -118,7 +118,12 @@ def main(json_file, verbose):
                 model_info['postpreds'],
                 f="'{}'",
                 sep=', '),
-            additional_args_info=format_list_of_dict(
+            parameters_desc=format_dict(
+                model_info['parameters'],
+                f="('{}', '{}'),",
+                sep='\n                ',
+                pre=lambda v: v['desc']),
+            additional_args_desc=format_list_of_dict(
                 model_info['additional_args'],
                 'code', 'default',
                 f="('{}', {}),",
