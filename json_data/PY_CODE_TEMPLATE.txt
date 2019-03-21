@@ -26,7 +26,7 @@ class {class_name}(TaskModel):
                 {regressors}
             ]),
             postpreds=[{postpreds}],
-            parameters_desc=OrderedDict{[
+            parameters_desc=OrderedDict([
                 {parameters_desc}
             ]),
             additional_args_desc=OrderedDict([
