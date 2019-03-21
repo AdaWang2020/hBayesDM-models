@@ -78,11 +78,11 @@ def main(json_file, verbose):
                 model_info['data_columns'],
                 f='- "{}": {}',
                 sep='\n    '),
-            parameters=format_parameters(
+            parameters=format_dict(
                 model_info['parameters'],
-                lambda v: v['desc'],
                 f='"{}" ({})',
-                sep=', '),
+                sep=', ',
+                pre=lambda v: v['desc']),
             model_regressor_parameter=message_model_regressor_parameter(
                 model_info['regressors']),
             model_regressor_return=message_model_regressor_return(
@@ -105,11 +105,11 @@ def main(json_file, verbose):
                 model_info['data_columns'],
                 f="'{}',",
                 sep='\n                '),
-            parameters=format_parameters(
+            parameters=format_dict(
                 model_info['parameters'],
-                lambda v: ', '.join(map(str, v['info'])),
                 f="('{}', ({})),",
-                sep='\n                '),
+                sep='\n                ',
+                pre=lambda v: ', '.join(map(str, v['info']))),
             regressors=format_dict(
                 model_info['regressors'],
                 f="('{}', {}),",
@@ -145,8 +145,9 @@ def format_list(data: Iterable,
 
 def format_dict(data: OrderedDict,
                 f: str,
-                sep: str) -> str:
-    return sep.join(f.format(k, v) for k, v in data.items())
+                sep: str,
+                pre: Callable = lambda v: v) -> str:
+    return sep.join(f.format(k, pre(v)) for k, v in data.items())
 
 
 def format_list_of_dict(data: List[OrderedDict],
@@ -154,13 +155,6 @@ def format_list_of_dict(data: List[OrderedDict],
                         f: str,
                         sep: str) -> str:
     return sep.join(f.format(*(d[k] for k in keys)) for d in data)
-
-
-def format_parameters(parameters: OrderedDict,
-                      l: Callable,
-                      f: str,
-                      sep: str) -> str:
-    return sep.join(f.format(k, l(v)) for k, v in parameters.items())
 
 
 def message_model_regressor_parameter(regressors: OrderedDict) -> str:
