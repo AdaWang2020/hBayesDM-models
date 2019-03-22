@@ -60,7 +60,8 @@ def main(json_file, verbose):
                 f='[{}]_',
                 sep=', '),
             model_cite_long=format_dict(
-                model_cite,
+                OrderedDict((k, v) for k, v in model_cite.items()
+                            if k not in task_cite),
                 f='.. [{}] {}',
                 sep='\n    '),
             model_type=model_info['model_type']['desc'],
