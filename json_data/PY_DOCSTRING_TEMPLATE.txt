@@ -4,6 +4,8 @@
     using {model_name} {model_cite_short} with the following parameters:
     {parameters}.
 
+    {notes}
+
     {task_cite_long}
     {model_cite_long}
 

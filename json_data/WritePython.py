@@ -64,6 +64,10 @@ def main(json_file, verbose):
                 f='.. [{}] {}',
                 sep='\n    '),
             model_type=model_info['model_type']['desc'],
+            notes=format_list(
+                model_info['notes'],
+                f='.. note::\n        {}',
+                sep='\n\n    '),
             contributors=format_list_of_dict(
                 model_info['contributors'],
                 'name', 'email',
