@@ -15,6 +15,7 @@
     "code": "",
     "desc": "Hierarchical"
   },
+  "notes": [],
   "contributors": [],
   "data_columns": {
     "subjID": "A unique identifier for each subject in the data-set.",
