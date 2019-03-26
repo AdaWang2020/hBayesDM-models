@@ -4,6 +4,7 @@ Written by Jethro Lee.
 """
 import sys
 import argparse
+import glob
 import json
 import re
 from pathlib import Path
@@ -208,6 +209,10 @@ def message_additional_args(additional_args: List) -> str:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
+        '-a', '--all',
+        help='write for all json files in directory',
+        action='store_true')
+    parser.add_argument(
         '-v', '--verbose',
         help='print output to stdout instead of writing to file',
         action='store_true')
@@ -218,4 +223,10 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    main(args.json_file, args.verbose)
+    if args.all:
+        # `all` flag overrides `json_file` & `verbose`
+        all_json_files = glob.glob('[a-z]*.json')
+        for file in all_json_files:
+            main(file, False)
+    else:
+        main(args.json_file, args.verbose)
