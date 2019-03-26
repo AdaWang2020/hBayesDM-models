@@ -226,7 +226,7 @@ if __name__ == '__main__':
     if args.all:
         # `all` flag overrides `json_file` & `verbose`
         all_json_files = glob.glob('[a-z]*.json')
-        for file in all_json_files:
-            main(file, False)
+        for json_fn in all_json_files:
+            main(json_fn, False)
     else:
         main(args.json_file, args.verbose)
