@@ -54,44 +54,44 @@ def main(json_file, verbose):
             task_name=model_info['task_name']['desc'],
             task_cite_short=format_list(
                 task_cite,
-                f='[{}]_',
+                fmt='[{}]_',
                 sep=', '),
             task_cite_long=format_dict(
                 task_cite,
-                f='.. [{}] {}',
+                fmt='.. [{}] {}',
                 sep='\n    '),
             model_name=model_info['model_name']['desc'],
             model_cite_short=format_list(
                 model_cite,
-                f='[{}]_',
+                fmt='[{}]_',
                 sep=', '),
             model_cite_long=format_dict(
                 OrderedDict((k, v) for k, v in model_cite.items()
                             if k not in task_cite),
-                f='.. [{}] {}',
+                fmt='.. [{}] {}',
                 sep='\n    '),
             model_type=model_info['model_type']['desc'],
             notes=format_list(
                 model_info['notes'],
-                f='.. note::\n        {}',
+                fmt='.. note::\n        {}',
                 sep='\n\n    '),
             contributors=format_list_of_dict(
                 model_info['contributors'],
                 'name', 'email',
-                f='.. codeauthor:: {} <{}>',
+                fmt='.. codeauthor:: {} <{}>',
                 sep='\n    '),
             data_columns=format_list(
                 model_info['data_columns'],
-                f='"{}"',
+                fmt='"{}"',
                 sep=', '),
             data_columns_len=len(model_info['data_columns']),
             data_columns_details=format_dict(
                 model_info['data_columns'],
-                f='- "{}": {}',
+                fmt='- "{}": {}',
                 sep='\n    '),
             parameters=format_dict(
                 model_info['parameters'],
-                f='"{}" ({})',
+                fmt='"{}" ({})',
                 sep=', ',
                 pre=lambda v: v['desc']),
             model_regressor_parameter=message_model_regressor_parameter(
@@ -115,30 +115,30 @@ def main(json_file, verbose):
             model_type=model_info['model_type']['code'],
             data_columns=format_list(
                 model_info['data_columns'],
-                f="'{}',",
+                fmt="'{}',",
                 sep='\n                '),
             parameters=format_dict(
                 model_info['parameters'],
-                f="('{}', ({})),",
+                fmt="('{}', ({})),",
                 sep='\n                ',
                 pre=lambda v: ', '.join(map(str, v['info']))),
             regressors=format_dict(
                 model_info['regressors'],
-                f="('{}', {}),",
+                fmt="('{}', {}),",
                 sep='\n                '),
             postpreds=format_list(
                 model_info['postpreds'],
-                f="'{}'",
+                fmt="'{}'",
                 sep=', '),
             parameters_desc=format_dict(
                 model_info['parameters'],
-                f="('{}', '{}'),",
+                fmt="('{}', '{}'),",
                 sep='\n                ',
                 pre=lambda v: v['desc']),
             additional_args_desc=format_list_of_dict(
                 model_info['additional_args'],
                 'code', 'default',
-                f="('{}', {}),",
+                fmt="('{}', {}),",
                 sep='\n                '),
         )
 
@@ -155,29 +155,29 @@ def main(json_file, verbose):
 
 
 def format_list(data: Iterable,
-                f: str,
+                fmt: str,
                 sep: str) -> str:
-    return sep.join(map(f.format, data))
+    return sep.join(map(fmt.format, data))
 
 
 def format_dict(data: OrderedDict,
-                f: str,
+                fmt: str,
                 sep: str,
                 pre: Callable = lambda v: v) -> str:
-    return sep.join(f.format(k, pre(v)) for k, v in data.items())
+    return sep.join(fmt.format(k, pre(v)) for k, v in data.items())
 
 
 def format_list_of_dict(data: List[OrderedDict],
                         *keys: str,
-                        f: str,
+                        fmt: str,
                         sep: str) -> str:
-    return sep.join(f.format(*(d[k] for k in keys)) for d in data)
+    return sep.join(fmt.format(*(d[k] for k in keys)) for d in data)
 
 
 def message_model_regressor_parameter(regressors: OrderedDict) -> str:
     if regressors:
         return 'For this model they are: ' + format_list(
-            regressors, f='"{}"', sep=', ')
+            regressors, fmt='"{}"', sep=', ')
     else:
         return 'Currently not available for this model'
 
@@ -206,7 +206,7 @@ def message_additional_args(additional_args: List) -> str:
             + format_list_of_dict(
                 additional_args,
                 'code', 'desc',
-                f='- ``{}``: {}',
+                fmt='- ``{}``: {}',
                 sep='\n        '))
     else:
         return 'Not used for this model.'
