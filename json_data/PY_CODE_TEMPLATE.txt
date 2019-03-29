@@ -5,7 +5,7 @@ from numpy import Inf, exp
 import pandas as pd
 
 from hbayesdm.base import TaskModel
-from hbayesdm.preprocess_funcs import {task_name}_preprocess_func
+from hbayesdm.preprocess_funcs import {prefix_preprocess_func}_preprocess_func
 
 __all__ = ['{model_function}']
 
@@ -35,7 +35,7 @@ class {class_name}(TaskModel):
             **kwargs,
         )
 
-    _preprocess_func = {task_name}_preprocess_func
+    _preprocess_func = {prefix_preprocess_func}_preprocess_func
 
 
 def {model_function}(

@@ -31,6 +31,11 @@ def main(json_file, verbose):
     # Model class name (Pascal-case)
     class_name = model_function.title().replace('_', '')
 
+    # Prefix to preprocess_func
+    prefix_preprocess_func = model_info['task_name']['code']
+    if model_info['model_type']['code']:
+        prefix_preprocess_func += '_' + model_info['model_type']['code']
+
     # Preprocess citations
     def shortify(cite: str) -> str:
         last_name = cite[:cite.find(',')].replace(' ', '_')
@@ -104,6 +109,7 @@ def main(json_file, verbose):
             docstring_template=docstring_template,
             model_function=model_function,
             class_name=class_name,
+            prefix_preprocess_func=prefix_preprocess_func,
             task_name=model_info['task_name']['code'],
             model_name=model_info['model_name']['code'],
             model_type=model_info['model_type']['code'],
