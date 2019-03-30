@@ -101,7 +101,7 @@
     max_treedepth
         Integer value specifying how many leapfrog steps the MCMC sampler can take
         on each new iteration. See note below.
-    additional_args
+    **additional_args
         {additional_args}
 
     .. note::

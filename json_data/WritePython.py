@@ -193,7 +193,7 @@ def message_model_regressor_return(regressors: OrderedDict) -> str:
 
 def message_postpreds(postpreds: List) -> str:
     if not postpreds:
-        return '**(Currently not available.) **'
+        return '**(Currently not available.)** '
     else:
         return ''
 
