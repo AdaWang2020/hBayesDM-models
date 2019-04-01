@@ -2,47 +2,56 @@
   "title": "Model Information Schema",
   "description": "Written by Jethro Lee",
   "type": "object",
+  "required": ["task_name", "model_name", "model_type", "notes", "contributors", "data_columns", "parameters", "regressors", "postpreds", "additional_args"],
   "properties": {
     "task_name": {
-      "required": true,
       "$ref": "#/definitions/_name"
     },
     "model_name": {
-      "required": true,
       "$ref": "#/definitions/_name"
     },
     "model_type": {
-      "required": true,
       "type": "object",
       "enum": [
-        {"code": "", "desc": "Hierarchical"},
-        {"code": "single", "desc": "Individual"},
-        {"code": "multipleB", "desc": "Multiple-Block Hierarchical"}
+        {
+          "code": "",
+          "desc": "Hierarchical"
+        },
+        {
+          "code": "single",
+          "desc": "Individual"
+        },
+        {
+          "code": "multipleB",
+          "desc": "Multiple-Block Hierarchical"
+        }
       ]
     },
     "notes": {
-      "required": true,
       "type": "array",
-      "items": {"$ref": "#/definitions/non_empty_string"}
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     },
     "contributors": {
-      "required": true,
       "type": "array",
       "items": {
         "type": "object",
+        "required": ["name", "email", "link"],
         "properties": {
           "name": {
-            "required": true,
-            "$ref": "#/definitions/non_empty_string"
+            "type": "string",
+            "minLength": 1
           },
           "email": {
-            "required": true,
             "type": "string",
+            "minLength": 1,
             "format": "email"
           },
           "link": {
-            "required": true,
             "type": "string",
+            "minLength": 1,
             "format": "uri"
           }
         },
@@ -50,32 +59,31 @@
       }
     },
     "data_columns": {
-      "required": true,
       "type": "object",
+      "required": ["subjID"],
       "properties": {
-        "subjID": {
-          "required": true,
-          "const": "A unique identifier for each subject in the data-set."
-        }
+        "subjID": {"const": "A unique identifier for each subject in the data-set."}
       },
       "patternProperties": {
-        "^[a-zA-Z0-9_]+$": {"$ref": "#/definitions/non_empty_string"}
+        "^[a-zA-Z0-9_]+$": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
     "parameters": {
-      "required": true,
       "type": "object",
       "patternProperties": {
         "^[a-zA-Z0-9_]+$": {
           "type": "object",
+          "required": ["desc", "info"],
           "properties": {
             "desc": {
-              "required": true,
-              "$ref": "#/definitions/non_empty_string"
+              "type": "string",
+              "minLength": 1
             },
             "info": {
-              "required": true,
               "type": "array",
               "minItems": 3,
               "maxItems": 3,
@@ -92,7 +100,6 @@
       "additionalProperties": false
     },
     "regressors": {
-      "required": true,
       "type": "object",
       "patternProperties": {
         "^[a-zA-Z0-9_]+$": {
@@ -104,7 +111,6 @@
       "additionalProperties": false
     },
     "postpreds": {
-      "required": true,
       "type": "array",
       "items": {
         "type": "string",
@@ -113,22 +119,21 @@
       }
     },
     "additional_args": {
-      "required": true,
       "type": "array",
       "items": {
         "type": "object",
+        "required": ["code", "default", "desc"],
         "properties": {
           "code": {
-            "required": true,
-            "$ref": "#/definitions/code_string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+$"
           },
           "default": {
-            "required": true,
             "type": "number"
           },
           "desc": {
-            "required": true,
-            "$ref": "#/definitions/non_empty_string"
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -145,30 +150,25 @@
   "definitions": {
     "_name": {
       "type": "object",
+      "required": ["code", "desc", "cite"],
       "properties": {
         "code": {
-          "required": true,
-          "$ref": "#/definitions/code_string"
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]+$"
         },
         "desc": {
-          "required": true,
-          "$ref": "#/definitions/non_empty_string"
+          "type": "string",
+          "minLength": 1
         },
         "cite": {
-          "required": true,
           "type": "array",
-          "items": {"$ref": "#/definitions/non_empty_string"}
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       },
       "additionalProperties": false
-    },
-    "code_string": {
-      "type": "string",
-      "pattern": "^[a-zA-Z0-9_]+$"
-    },
-    "non_empty_string": {
-      "type": "string",
-      "not": {"const": ""}
     }
   }
 }
