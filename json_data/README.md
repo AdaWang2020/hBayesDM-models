@@ -14,13 +14,13 @@ Schema for the Model Information JSON files is stored in
 | `task_name`       | Object              | Informations regarding the task.
 | `model_name`      | Object              | Informations regarding the model.
 | `model_type`      | Object              | Modeling-type information. Should be one of the following three:</br> - `{"code": "", "desc": "Hierarchical"}`</br> - `{"code": "single", "desc": "Individual"}`</br> - `{"code": "multipleB", "desc": "Multiple-Block Hierarchical"}`
-| `notes`           | Array of Strings    | Optional notes about the task/model. Leave as empty array `[]` if unused.
-| `contributors`    | Array of Objects    | Optional specifying of contributors. Leave as empty array `[]` if unused.
+| `notes`           | Array of Strings    | Optional notes about the task/model. Give empty array `[]` if unused.
+| `contributors`    | Array of Objects    | Optional specifying of contributors. Give empty array `[]` if unused.
 | `data_columns`    | Object              | **Keys**: names of the necessary data columns for user data.</br> - `"subjID"` must always be included.</br> - Also include `"block"`, if modeling-type is "multipleB".</br> **Values**: one-line descriptions about each data column.
 | `parameters`      | Object (of Objects) | **Keys**: names of the parameters of this model.</br> **Values**: inner-level Object specifying desc and info for each parameter.
-| `regressors`      | Object              | *(Leave as empty object `{}` if not supported.)*</br> **Keys**: names of the regressors of this model.</br> **Values**: extracted dimension-size for each regressor.
-| `postpreds`       | Array of Strings    | Name(s) of the posterior predictions. Give empty array `[]` if not supported.
-| `additional_args` | Array of Objects    | Specifying of additional arguments, if any. Leave as empty array `[]` if unused.
+| `regressors`      | Object              | *(Give empty object `{}` if not supported.)*</br> **Keys**: names of the regressors of this model.</br> **Values**: extracted dimension-size for each regressor.
+| `postpreds`       | Array of Strings    | Name(s) of posterior predictions. Give empty array `[]` if not supported.
+| `additional_args` | Array of Objects    | Specifying of additional arguments, if any. Give empty array `[]` if unused.
 
 *\* Note that all outermost-level properties are required properties. Assign empty values (`[]` or `{}`) to them if unused.*  
 *\* Refer below for inner-level Object specifications.*
