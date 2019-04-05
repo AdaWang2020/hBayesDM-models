@@ -26,27 +26,30 @@ Schema for the Model Information JSON files is stored in
 *\* Refer below for inner-level Object specifications.*
 
 #### `task_name` & `model_name` Object
-| Keys   | Values
-|--------|-------------------------------------|
-| `code` | *(String)* Code for the task/model.
-| `desc` | *(String)* Name of the task/model in title-case.
-| `cite` | *(Array of Strings)* Citations for the task/model.
+| Keys     | Values
+|----------|-------------------------------------|
+| `"code"` | *(String)* Code for the task/model.
+| `"desc"` | *(String)* Name of the task/model in title-case.
+| `"cite"` | *(Array of Strings)* Citation(s) for the task/model.
 
 #### `model_type` Object
 | Keys     | Values
-|----------|----------------------------------------|
-| `"code"` | *(String)* Code for the modeling-type.
-| `"desc"` | *(String)* Name of the task in title-case.
+|----------|---------------------------------------------|
+| `"code"` | One of: `""`, `"single"`, or `"multipleB"`.
+| `"desc"` | One of: `"Hierarchical"`, `"Individual"`, or `"Multiple-Block Hierarchical"`.
 
-#### Contributor Object
+#### (Inner-level) Contributor Object
+| Keys      | Values
+|-----------|-------------------------------------|
+| `"name"`  | *(String)* Name of the contributor.
+| `"email"` | *(String)* Email-address of the contributor.
+| `"link"`  | *(String)* Link to the contributor's page.
+
+#### (Inner-level) Parameter Object
 | Keys     | Values
 |----------|-------------------------------|
 
-#### Parameter Object
-| Keys     | Values
-|----------|-------------------------------|
-
-#### Additional_arg Object
+#### (Inner-level) Additional_arg Object
 | Property | Type | Description
 |----------|------|-------------|
 
