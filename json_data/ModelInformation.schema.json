@@ -61,9 +61,6 @@
     "data_columns": {
       "type": "object",
       "required": ["subjID"],
-      "properties": {
-        "subjID": {"const": "A unique identifier for each subject in the data-set."}
-      },
       "patternProperties": {
         "^[a-zA-Z0-9_]+$": {
           "type": "string",
