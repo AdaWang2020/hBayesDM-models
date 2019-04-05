@@ -95,50 +95,58 @@ One of the following three:
 
 ## JSON Examples
 
+These are some good examples to start with, if you are completely new.
+
 | [`gng_m1.json`](./gng_m1.json) | [`choiceRT_ddm_single.json`](./choiceRT_ddm_single.json) | [`prl_fictitious_multipleB.json`](./prl_fictitious_multipleB.json) | [`ts_par4.json`](./ts_par4.json)
 |-|-|-|-|
 |`task_name`</br>`model_name`</br>`model_type`</br>~~`notes`~~</br>~~`contributors`~~</br>`data_columns`</br>`parameters`</br>`regressors`</br>`postpreds`</br>~~`additional_args`~~ |`task_name`</br>`model_name`</br>`model_type`</br>`notes`</br>~~`contributors`~~</br>`data_columns`</br>`parameters`</br>~~`regressors`~~</br>~~`postpreds`~~</br>`additional_args` |`task_name`</br>`model_name`</br>`model_type`</br>~~`notes`~~</br>`contributors`</br>`data_columns`</br>`parameters`</br>`regressors`</br>`postpreds`</br>~~`additional_args`~~ |`task_name`</br>`model_name`</br>`model_type`</br>~~`notes`~~</br>`contributors`</br>`data_columns`</br>`parameters`</br>~~`regressors`~~</br>`postpreds`</br>`additional_args`
 
 ## JSON Validation
 
-Validating against the current Schema file is a good basis to see if you've written the model JSON file correctly.
+Validating against the current Schema file is a good basis to see if you've written the model JSON file correctly.  
 To validate JSON files, you need to have [`jsonschema`][jsonschema] installed; you can install it with `pip install jsonschema`.
 
 [jsonschema]: https://github.com/Julian/jsonschema
 
 To validate a single JSON file (e.g. `gng_m1.json`):
-
 ```sh
 $ jsonschema -i gng_m1.json ModelInformation.schema.json
 ```
 
 To validate all JSON files in directory, use following shell script:
-
 ```sh
 $ ./ValidateAll.sh
 ```
 
 ## Automated Python Code Generation
 
-Once you've (correctly) written the JSON file for a new model, it's possible to
-automatically generate the corresponding python code for the new model,
+Once you've (correctly) written the JSON file for a new model,
+it's possible to automatically generate the corresponding python code for the new model,
 using the python script `WritePython.py`:
 
 ```
 $ ./WritePython.py -h
-usage: WritePython.py [-h] [-v] json_file
+usage: WritePython.py [-h] [-a] [-v] json_file
 
 positional arguments:
   json_file      JSON file of the model to generate corresponding python code
 
 optional arguments:
   -h, --help     show this help message and exit
+  -a, --all      write for all json files in directory
   -v, --verbose  print output to stdout instead of writing to file
 ```
 
-E.g. (generate `_gng_m1.py` from `gng_m1.json`):
-
+E.g. (to generate `_gng_m1.py` from `gng_m1.json`):
 ```sh
 $ ./WritePython.py gng_m1.json
 Created file: _gng_m1.py
+```
+
+To generate python codes for all json files in directory:
+```sh
+$ ./WritePython.py --all .
+Created file: _bandit2arm_delta.py
+...
+Created file: _wcs_sql.py
 ```
