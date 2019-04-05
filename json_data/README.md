@@ -25,6 +25,31 @@ Schema for the Model Information JSON files is stored in
 *\* Note that all outermost-level properties are required properties. Assign empty values (`[]` or `{}`) to them if unused.*  
 *\* Refer below for inner-level Object specifications.*
 
+#### `task_name` & `model_name` Object
+| Keys   | Values
+|--------|-------------------------------------|
+| `code` | *(String)* Code for the task/model.
+| `desc` | *(String)* Name of the task/model in title-case.
+| `cite` | *(Array of Strings)* Citations for the task/model.
+
+#### `model_type` Object
+| Keys     | Values
+|----------|----------------------------------------|
+| `"code"` | *(String)* Code for the modeling-type.
+| `"desc"` | *(String)* Name of the task in title-case.
+
+#### Contributor Object
+| Keys     | Values
+|----------|-------------------------------|
+
+#### Parameter Object
+| Keys     | Values
+|----------|-------------------------------|
+
+#### Additional_arg Object
+| Property | Type | Description
+|----------|------|-------------|
+
 *\* Allowed values for parameter infos (lower bound, plausible value, upper bound):*
 - Numbers
 - Strings: `"Inf"`, `"-Inf"`, `"exp([0-9.]+)"`
