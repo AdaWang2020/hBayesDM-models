@@ -24,56 +24,85 @@ Schema for the Model Information JSON files is stored in `ModelInformation.schem
 *\* Note that all outermost-level properties are required properties. Assign empty values (`[]` or `{}`) to them if unused.*  
 *\* Refer below for inner-level Object specifications.*
 
-#### `task_name` & `model_name` Object
+<details><summary><b><code>task_name</code> & <code>model_name</code> Object</b></summary><p>
+
 | Keys     | Values
 |----------|-------------------------------------|
 | `"code"` | *(String)* Code for the task/model.
 | `"desc"` | *(String)* Name of the task/model in title-case.
 | `"cite"` | *(Array of Strings)* Citation(s) for the task/model.
 
-#### `model_type` Object
-| Keys     | Values
-|----------|---------------------------------------------|
-| `"code"` | One of: `""`, `"single"`, or `"multipleB"`.
-| `"desc"` | One of: `"Hierarchical"`, `"Individual"`, or `"Multiple-Block Hierarchical"`.
+</p></details>
 
-#### (Inner-level) Contributor Object
+<details><summary><b><code>model_type</code> Object</b></summary><p>
+
+One of the following three:
+
+```json
+{
+  "code": "",
+  "desc": "Hierarchical"
+}
+```
+```json
+{
+  "code": "single",
+  "desc": "Individual"
+}
+```
+```json
+{
+  "code": "multipleB",
+  "desc": "Multiple-Block Hierarchical"
+}
+```
+
+</p></details>
+
+<details><summary><b>(Inner-level) Contributor Object</b></summary><p>
+
 | Keys      | Values
 |-----------|-------------------------------------|
 | `"name"`  | *(String)* Name of the contributor.
 | `"email"` | *(String)* Email address of the contributor.
 | `"link"`  | *(String)* Link to the contributor's page.
 
-#### (Inner-level) Parameter Object
+</p></details>
+
+<details><summary><b>(Inner-level) Parameter Object</b></summary><p>
+
 | Keys     | Values
 |----------|---------------------------------------------------------|
 | `"desc"` | *(String)* Description of the parameter in a few words.
-| `"info"` | *(Length-3-Array)* **Lower bound**, **plausible value**, and **upper bound** of the parameter. <h6><em>Allowed values:</em><br>- Numbers<br>- Strings: `"Inf"`, `"-Inf"`, `"exp([0-9.]+)"`<br>- `null`</h6>
+| `"info"` | *(Length-3-Array)* **Lower bound**, **plausible value**, and **upper bound** of the parameter.</br> *\* See right below for allowed values.*
 
-#### (Inner-level) Additional_arg Object
+*\* Allowed values (lower bound, plausible value, upper bound):*
+- Numbers
+- Strings: `"Inf"`, `"-Inf"`, `"exp([0-9.]+)"`
+- `null`
+
+</p></details>
+
+<details><summary><b>(Inner-level) Additional_arg Object</b></summary><p>
+
 | Keys        | Values
 |-------------|----------------------------------------------|
 | `"code"`    | *(String)* Code for the additional argument.
 | `"default"` | *(Number)* Default value of the additional argument.
 | `"desc"`    | *(String)* One-line description about the additional argument.
 
+</p></details>
+
 ## JSON Examples
 
-E.g. [`gng_m1.json`](./gng_m1.json)  
-\- `task_name`  
-\- `model_name`  
-\- `model_type`  
-\- `data_columns`  
-\- `parameters`  
-\- `regressors`  
-\- `postpreds`  
+| [`gng_m1.json`](./gng_m1.json) | [`choiceRT_ddm_single.json`](./choiceRT_ddm_single.json) | [`prl_fictitious_multipleB.json`](./prl_fictitious_multipleB.json) | [`ts_par4.json`](./ts_par4.json)
+|-|-|-|-|
+|`task_name`</br>`model_name`</br>`model_type`</br>~~`notes`~~</br>~~`contributors`~~</br>`data_columns`</br>`parameters`</br>`regressors`</br>`postpreds`</br>~~`additional_args`~~ |`task_name`</br>`model_name`</br>`model_type`</br>`notes`</br>~~`contributors`~~</br>`data_columns`</br>`parameters`</br>~~`regressors`~~</br>~~`postpreds`~~</br>`additional_args` |`task_name`</br>`model_name`</br>`model_type`</br>~~`notes`~~</br>`contributors`</br>`data_columns`</br>`parameters`</br>`regressors`</br>`postpreds`</br>~~`additional_args`~~ |`task_name`</br>`model_name`</br>`model_type`</br>~~`notes`~~</br>`contributors`</br>`data_columns`</br>`parameters`</br>~~`regressors`~~</br>`postpreds`</br>`additional_args`
 
 ## JSON Validation
 
-Validating against the current Schema file is a good basis to see if you've
-written the model JSON file correctly.
-To validate JSON files, you need to have [`jsonschema`][jsonschema] installed; you can
-install it with `pip install jsonschema`.
+Validating against the current Schema file is a good basis to see if you've written the model JSON file correctly.
+To validate JSON files, you need to have [`jsonschema`][jsonschema] installed; you can install it with `pip install jsonschema`.
 
 [jsonschema]: https://github.com/Julian/jsonschema
 
