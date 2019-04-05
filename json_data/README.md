@@ -6,13 +6,12 @@ Contributed by [Jethro Lee][jethro-lee].
 
 ## JSON Schema
 
-Schema for the Model Information JSON files is stored in
-`ModelInformation.schema.json` as a JSON Schema format.
+Schema for the Model Information JSON files is stored in `ModelInformation.schema.json` as a JSON Schema format.
 
 | Property          | Type                | Description
 |-------------------|---------------------|----------------------------------|
-| `task_name`       | Object              | Informations regarding the task.
-| `model_name`      | Object              | Informations regarding the model.
+| `task_name`       | Object              | Informations regarding the task. *See below for **Keys** and **Values**.*
+| `model_name`      | Object              | Informations regarding the model. *See below for **Keys** and **Values**.*
 | `model_type`      | Object              | Modeling-type information. Should be one of the following three:</br> - `{"code": "", "desc": "Hierarchical"}`</br> - `{"code": "single", "desc": "Individual"}`</br> - `{"code": "multipleB", "desc": "Multiple-Block Hierarchical"}`
 | `notes`           | Array of Strings    | Optional notes about the task/model. Give empty array `[]` if unused.
 | `contributors`    | Array of Objects    | Optional specifying of contributors. Give empty array `[]` if unused.
@@ -42,26 +41,32 @@ Schema for the Model Information JSON files is stored in
 | Keys      | Values
 |-----------|-------------------------------------|
 | `"name"`  | *(String)* Name of the contributor.
-| `"email"` | *(String)* Email-address of the contributor.
+| `"email"` | *(String)* Email address of the contributor.
 | `"link"`  | *(String)* Link to the contributor's page.
 
 #### (Inner-level) Parameter Object
 | Keys     | Values
-|----------|-------------------------------|
+|----------|---------------------------------------------------------|
+| `"desc"` | *(String)* Description of the parameter in a few words.
+| `"info"` | *(Length-3-Array)* **Lower bound**, **plausible value**, and **upper bound** of the parameter. <h6><em>Allowed values:</em><br>- Numbers<br>- Strings: `"Inf"`, `"-Inf"`, `"exp([0-9.]+)"`<br>- `null`</h6>
 
 #### (Inner-level) Additional_arg Object
-| Property | Type | Description
-|----------|------|-------------|
+| Keys        | Values
+|-------------|----------------------------------------------|
+| `"code"`    | *(String)* Code for the additional argument.
+| `"default"` | *(Number)* Default value of the additional argument.
+| `"desc"`    | *(String)* One-line description about the additional argument.
 
-*\* Allowed values for parameter infos (lower bound, plausible value, upper bound):*
-- Numbers
-- Strings: `"Inf"`, `"-Inf"`, `"exp([0-9.]+)"`
-- `null`
+## JSON Examples
 
-## JSON Example
-
-***It would be better to provide an example for this. It's a little hard to find
-what developers should do to add a model.***
+E.g. [`gng_m1.json`](./gng_m1.json)  
+\- `task_name`  
+\- `model_name`  
+\- `model_type`  
+\- `data_columns`  
+\- `parameters`  
+\- `regressors`  
+\- `postpreds`  
 
 ## JSON Validation
 
