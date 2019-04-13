@@ -109,12 +109,12 @@ To validate JSON files, you need to have [`jsonschema`][jsonschema] installed; y
 [jsonschema]: https://github.com/Julian/jsonschema
 
 To validate a single JSON file (e.g. `gng_m1.json`):
-```sh
+```
 $ jsonschema -i gng_m1.json ModelInformation.schema.json
 ```
 
 To validate all JSON files in directory, use following shell script:
-```sh
+```
 $ ./ValidateAll.sh
 ```
 
@@ -138,13 +138,13 @@ optional arguments:
 ```
 
 E.g. (to generate `_gng_m1.py` from `gng_m1.json`):
-```sh
+```
 $ ./WritePython.py gng_m1.json
 Created file: _gng_m1.py
 ```
 
 To generate python codes for all json files in directory:
-```sh
+```
 $ ./WritePython.py --all .
 Created file: _bandit2arm_delta.py
 ...
