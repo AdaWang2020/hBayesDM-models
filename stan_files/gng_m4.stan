@@ -156,7 +156,6 @@ generated quantities {
 
   { // local section, this saves time and space
     for (i in 1:N) {
-
       wv_g  = initV;
       wv_ng = initV;
       qv_g  = initV;
