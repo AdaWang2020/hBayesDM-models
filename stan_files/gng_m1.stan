@@ -37,6 +37,13 @@ transformed parameters {
 
 model {
 // gng_m1: RW + noise model in Guitart-Masip et al 2012
+  // Temporary variables
+  vector[4] wv_g;  // action weight for go
+  vector[4] wv_ng; // action weight for nogo
+  vector[4] qv_g;  // Q value for go
+  vector[4] qv_ng; // Q value for nogo
+  vector[4] pGo;   // prob of go (press)
+
   // hyper parameters
   mu_pr  ~ normal(0, 1.0);
   sigma ~ normal(0, 0.2);
@@ -47,12 +54,6 @@ model {
   rho_pr ~ normal(0, 1.0);
 
   for (i in 1:N) {
-    vector[4] wv_g;  // action weight for go
-    vector[4] wv_ng; // action weight for nogo
-    vector[4] qv_g;  // Q value for go
-    vector[4] qv_ng; // Q value for nogo
-    vector[4] pGo;   // prob of go (press)
-
     wv_g  = initV;
     wv_ng = initV;
     qv_g  = initV;
@@ -88,6 +89,13 @@ generated quantities {
   real Wgo[N, T];
   real Wnogo[N, T];
 
+  // Temporary variables
+  vector[4] wv_g;  // action weight for go
+  vector[4] wv_ng; // action weight for nogo
+  vector[4] qv_g;  // Q value for go
+  vector[4] qv_ng; // Q value for nogo
+  vector[4] pGo;   // prob of go (press)
+
   // For posterior predictive check
   real y_pred[N, T];
 
@@ -104,12 +112,6 @@ generated quantities {
 
   { // local section, this saves time and space
     for (i in 1:N) {
-      vector[4] wv_g;  // action weight for go
-      vector[4] wv_ng; // action weight for nogo
-      vector[4] qv_g;  // Q value for go
-      vector[4] qv_ng; // Q value for nogo
-      vector[4] pGo;   // prob of go (press)
-
       wv_g  = initV;
       wv_ng = initV;
       qv_g  = initV;
